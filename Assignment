@@ -1,0 +1,234 @@
+using System;
+
+namespace CSharpAssignments
+{
+    // 1. Even or Odd Checker
+    class EvenOddChecker
+    {
+        public static void Run()
+        {
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            if (num % 2 == 0)
+                Console.WriteLine($"{num} is Even.");
+            else
+                Console.WriteLine($"{num} is Odd.");
+        }
+    }
+
+    // 2. Simple Calculator
+    class SimpleCalculator
+    {
+        public static void Run()
+        {
+            Console.Write("Enter first number: ");
+            double a = double.Parse(Console.ReadLine());
+            Console.Write("Enter second number: ");
+            double b = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Choose operation (+, -, *, /): ");
+            char op = Console.ReadKey().KeyChar;
+            Console.WriteLine();
+
+            switch (op)
+            {
+                case '+': Console.WriteLine($"Result: {a + b}"); break;
+                case '-': Console.WriteLine($"Result: {a - b}"); break;
+                case '*': Console.WriteLine($"Result: {a * b}"); break;
+                case '/': 
+                    if (b != 0) Console.WriteLine($"Result: {a / b}");
+                    else Console.WriteLine("Division by zero not allowed.");
+                    break;
+                default: Console.WriteLine("Invalid operator."); break;
+            }
+        }
+    }
+
+    // 3. Grade Evaluator
+    class GradeEvaluator
+    {
+        public static void Run()
+        {
+            Console.Write("Enter marks (0-100): ");
+            int marks = int.Parse(Console.ReadLine());
+
+            if (marks >= 85) Console.WriteLine("Grade: A");
+            else if (marks >= 70) Console.WriteLine("Grade: B");
+            else if (marks >= 55) Console.WriteLine("Grade: C");
+            else if (marks >= 40) Console.WriteLine("Grade: D");
+            else Console.WriteLine("Grade: F");
+        }
+    }
+
+    // 4. Sum of Natural Numbers
+    class SumOfNaturalNumbers
+    {
+        public static void Run()
+        {
+            Console.Write("Enter n: ");
+            int n = int.Parse(Console.ReadLine());
+            int sum = 0;
+
+            for (int i = 1; i <= n; i++)
+                sum += i;
+
+            Console.WriteLine($"Sum of numbers from 1 to {n} = {sum}");
+        }
+    }
+
+    // 5. Multiplication Table
+    class MultiplicationTable
+    {
+        public static void Run()
+        {
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= 10; i++)
+                Console.WriteLine($"{num} x {i} = {num * i}");
+        }
+    }
+
+    // 6. Factorial Calculator
+    class FactorialCalculator
+    {
+        public static void Run()
+        {
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            int fact = 1;
+
+            int i = num;
+            while (i > 1)
+            {
+                fact *= i;
+                i--;
+            }
+
+            Console.WriteLine($"Factorial of {num} = {fact}");
+        }
+    }
+
+    // 7. Reverse a Number
+    class ReverseNumber
+    {
+        public static void Run()
+        {
+            Console.Write("Enter a number: ");
+            int num = int.Parse(Console.ReadLine());
+            int rev = 0;
+
+            while (num > 0)
+            {
+                rev = rev * 10 + num % 10;
+                num /= 10;
+            }
+
+            Console.WriteLine($"Reversed number: {rev}");
+        }
+    }
+
+    // 8. Array - Find Maximum and Minimum
+    class ArrayMaxMin
+    {
+        public static void Run()
+        {
+            int[] arr = new int[10];
+            Console.WriteLine("Enter 10 numbers:");
+
+            for (int i = 0; i < 10; i++)
+                arr[i] = int.Parse(Console.ReadLine());
+
+            int max = arr[0], min = arr[0];
+            for (int i = 1; i < 10; i++)
+            {
+                if (arr[i] > max) max = arr[i];
+                if (arr[i] < min) min = arr[i];
+            }
+
+            Console.WriteLine($"Maximum = {max}, Minimum = {min}");
+        }
+    }
+
+    // 9. Array - Count Even and Odd Numbers
+    class ArrayEvenOddCount
+    {
+        public static void Run()
+        {
+            int[] arr = new int[10];
+            Console.WriteLine("Enter 10 numbers:");
+
+            for (int i = 0; i < 10; i++)
+                arr[i] = int.Parse(Console.ReadLine());
+
+            int evenCount = 0, oddCount = 0;
+            foreach (int num in arr)
+            {
+                if (num % 2 == 0) evenCount++;
+                else oddCount++;
+            }
+
+            Console.WriteLine($"Even numbers: {evenCount}, Odd numbers: {oddCount}");
+        }
+    }
+
+    // 10. Array - Search Element
+    class ArraySearch
+    {
+        public static void Run()
+        {
+            Console.Write("Enter size of array: ");
+            int n = int.Parse(Console.ReadLine());
+            int[] arr = new int[n];
+
+            Console.WriteLine($"Enter {n} numbers:");
+            for (int i = 0; i < n; i++)
+                arr[i] = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter number to search: ");
+            int search = int.Parse(Console.ReadLine());
+
+            bool found = false;
+            foreach (int num in arr)
+            {
+                if (num == search)
+                {
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found) Console.WriteLine($"{search} found in array.");
+            else Console.WriteLine($"{search} not found in array.");
+        }
+    }
+
+    // Main Program
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Choose program to run (1-10): ");
+            int choice = int.Parse(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1: EvenOddChecker.Run(); break;
+                case 2: SimpleCalculator.Run(); break;
+                case 3: GradeEvaluator.Run(); break;
+                case 4: SumOfNaturalNumbers.Run(); break;
+                case 5: MultiplicationTable.Run(); break;
+                case 6: FactorialCalculator.Run(); break;
+                case 7: ReverseNumber.Run(); break;
+                case 8: ArrayMaxMin.Run(); break;
+                case 9: ArrayEvenOddCount.Run(); break;
+                case 10: ArraySearch.Run(); break;
+                default: Console.WriteLine("Invalid choice."); break;
+            }
+
+            Console.WriteLine("\nPress any key to exit...");
+            Console.ReadKey();
+        }
+    }
+}
