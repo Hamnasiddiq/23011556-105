@@ -1,0 +1,26 @@
+using System;
+
+namespace ReverseNumber
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a number to reverse: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int reverse = 0;
+
+            while (number != 0)
+            {
+                int remainder = number % 10;      // Get the last digit
+                reverse = (reverse * 10) + remainder; // Add it to the reversed number
+                number = number / 10;             // Remove the last digit
+            }
+
+            Console.WriteLine($"Reversed number is: {reverse}");
+
+            Console.ReadLine(); // keeps console window open
+        }
+    }
+}
