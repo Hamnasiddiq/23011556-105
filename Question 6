@@ -1,0 +1,26 @@
+using System;
+
+namespace FactorialCalculator
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("Enter a number to find its factorial: ");
+            int number = Convert.ToInt32(Console.ReadLine());
+
+            int factorial = 1;
+            int i = 1;
+
+            while (i <= number)
+            {
+                factorial *= i;
+                i++;
+            }
+
+            Console.WriteLine($"The factorial of {number} is: {factorial}");
+
+            Console.ReadLine(); // keeps console window open
+        }
+    }
+}
